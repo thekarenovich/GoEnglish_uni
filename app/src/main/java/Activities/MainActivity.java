@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -14,9 +15,13 @@ import com.google.android.material.navigation.NavigationBarView;
 import com.karenovich.goenglish.R;
 import com.karenovich.goenglish.databinding.ActivityMainBinding;
 
+import Model.Tutorials;
+import ViewModel.TutorialsViewModel;
+
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
+    TutorialsViewModel model;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+        model = new ViewModelProvider(this).get(TutorialsViewModel.class);
 
         replaceFragment(new TutorialsFragment());
         binding.bottomNavMenu.setSelectedItemId(R.id.tutorial);
@@ -41,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        model.insert(new Tutorials(0, "verbs", "thekarenovich"));
     }
 
     public void replaceFragment(Fragment fragment){
