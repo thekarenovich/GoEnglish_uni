@@ -35,6 +35,11 @@ public class TutorialsAdapter extends RecyclerView.Adapter<TutorialsAdapter.MyVi
         return mTutorials.size();
     }
 
+    public void setTutorials(List<Tutorials> tutorials){
+        this.mTutorials = tutorials;
+        notifyDataSetChanged();
+    }
+
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         ItemListBinding binding;

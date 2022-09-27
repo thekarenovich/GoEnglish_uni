@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -13,6 +14,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.karenovich.goenglish.databinding.FragmentTutorialsBinding;
 
+import java.util.List;
+
+import Adapters.TutorialsAdapter;
+import Model.Tutorials;
 import ViewModel.TutorialsViewModel;
 
 
@@ -39,8 +44,19 @@ public class TutorialsFragment extends Fragment {
         model = new ViewModelProvider(this).get(TutorialsViewModel.class);
         binding.tutorialRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.tutorialRecycler.setHasFixedSize(true);
+        TutorialsAdapter tutorialsAdapter = new TutorialsAdapter();
+        binding.tutorialRecycler.setAdapter(tutorialsAdapter);
+
+        model.getAllTutorials().observe(getViewLifecycleOwner(), new Observer<List<Tutorials>>() {
+            @Override
+            public void onChanged(List<Tutorials> tutorials) {
+                tutorialsAdapter.setTutorials(tutorials);
+            }
+        });
 
     }
+
+
 }
 
 
