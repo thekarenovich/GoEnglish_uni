@@ -10,12 +10,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.karenovich.goenglish.databinding.ItemListBinding;
 
 import java.util.List;
+import java.util.ArrayList;
 
 import Model.Tutorials;
 
 public class TutorialsAdapter extends RecyclerView.Adapter<TutorialsAdapter.MyViewHolder>{
 
-    private List<Tutorials> mTutorials;
+    private List<Tutorials> mTutorials =  new ArrayList<>();
 
     @NonNull
     @Override
