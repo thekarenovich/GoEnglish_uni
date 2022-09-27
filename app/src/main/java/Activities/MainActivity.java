@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        model.insert(new Tutorials(0, "verbs", "thekarenovich"));
+//        model.insert(new Tutorials(0, "verbs", "thekarenovich"));
     }
 
     public void replaceFragment(Fragment fragment){
