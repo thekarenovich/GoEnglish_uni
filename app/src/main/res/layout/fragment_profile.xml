@@ -4,10 +4,42 @@
     android:layout_height="match_parent"
     tools:context="Activities.ProfileFragment">
 
+    <ImageView
+        android:id="@+id/avaImg"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="60dp" />
 
-    <TextView
-        android:id="@+id/textView"
+    <Button
+        android:id="@+id/saveBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="80dp"
+        android:text="Save profile"/>
+
+    <EditText
+        android:id="@+id/inputUser"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="200dp"
+        android:hint="Username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/inputEmail"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="250dp"
+        android:hint="Email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/inputPass"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="300dp"
+        android:hint="Password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 </FrameLayout>
