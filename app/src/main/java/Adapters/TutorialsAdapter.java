@@ -1,7 +1,6 @@
 package Adapters;
 
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -12,7 +11,7 @@ import com.karenovich.goenglish.databinding.ItemListBinding;
 import java.util.ArrayList;
 import java.util.List;
 
-import Model.Tutorials;
+import Data.Tutorials;
 
 public class TutorialsAdapter extends RecyclerView.Adapter<TutorialsAdapter.MyViewHolder>{
 

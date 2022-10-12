@@ -5,12 +5,11 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.ViewModel;
 
 import java.util.List;
 
 import Data.TutorialsRepository;
-import Model.Tutorials;
+import Data.Tutorials;
 
 public class TutorialsViewModel extends AndroidViewModel {
     private TutorialsRepository tutorialsRepository;

@@ -1,30 +1,19 @@
 package Model;
 
 import androidx.room.ColumnInfo;
-import androidx.room.Entity;
 import androidx.room.Ignore;
-import androidx.room.PrimaryKey;
 
+public class TutorialsModel {
 
-@Entity(tableName = "tutorials")
-public class Tutorials {
-
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "tutorial_id")
     private long id;
-
-    @ColumnInfo(name = "theme_id")
     private String theme;
-
-    @ColumnInfo(name = "text_id")
     private String text;
 
-    @Ignore
-    public Tutorials() {
+    public TutorialsModel() {
 
     }
 
-    public Tutorials(long id, String theme, String text) {
+    public TutorialsModel(long id, String theme, String text) {
         this.id = id;
         this.theme = theme;
         this.text = text;
@@ -53,5 +42,6 @@ public class Tutorials {
     public void setText(String text) {
         this.text = text;
     }
+
 }
 

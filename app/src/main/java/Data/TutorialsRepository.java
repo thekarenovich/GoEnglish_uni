@@ -7,8 +7,6 @@ import androidx.lifecycle.LiveData;
 
 import java.util.List;
 
-import Model.Tutorials;
-
 public class TutorialsRepository {
     private TutorialsDAO TutorialsDAO;
     private LiveData<List<Tutorials>> allTutorials;

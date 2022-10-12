@@ -15,7 +15,7 @@ import com.google.android.material.navigation.NavigationBarView;
 import com.karenovich.goenglish.R;
 import com.karenovich.goenglish.databinding.ActivityMainBinding;
 
-import Model.Tutorials;
+import Data.Tutorials;
 import ViewModel.TutorialsViewModel;
 
 public class MainActivity extends AppCompatActivity {
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        model.insert(new Tutorials(0, "verbs", "thekarenovich"));
+        model.insert(new Tutorials(0, "verbs", "thekarenovich"));
     }
 
     public void replaceFragment(Fragment fragment){

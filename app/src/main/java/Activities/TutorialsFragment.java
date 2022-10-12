@@ -17,7 +17,7 @@ import com.karenovich.goenglish.databinding.FragmentTutorialsBinding;
 import java.util.List;
 
 import Adapters.TutorialsAdapter;
-import Model.Tutorials;
+import Data.Tutorials;
 import ViewModel.TutorialsViewModel;
 
 
