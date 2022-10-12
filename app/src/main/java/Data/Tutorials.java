@@ -19,15 +19,19 @@ public class Tutorials {
     @ColumnInfo(name = "text_id")
     private String text;
 
+    @ColumnInfo(name = "image_id")
+    private String image;
+
     @Ignore
     public Tutorials() {
 
     }
 
-    public Tutorials(long id, String theme, String text) {
+    public Tutorials(long id, String theme, String text, String image) {
         this.id = id;
         this.theme = theme;
         this.text = text;
+        this.image = image;
     }
 
     public long getId() {
@@ -53,5 +57,14 @@ public class Tutorials {
     public void setText(String text) {
         this.text = text;
     }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
 }
 
