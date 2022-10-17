@@ -9,16 +9,18 @@ import java.util.List;
 
 public class TutorialsRepository {
     private TutorialsDAO TutorialsDAO;
-    private ProfileDAO profileDAO;
     private LiveData<List<Tutorials>> allTutorials;
-    private LiveData<ProfileDB> image;
+
+    private NoteDAO noteDAO;
+    private LiveData<List<DBNote>> allNote;
 
     public TutorialsRepository(Application application){
         TutorialsDB db = TutorialsDB.getInstance(application);
         TutorialsDAO = db.getTutorialsDAO();
-        profileDAO = db.getProfileDAO();
         allTutorials = TutorialsDAO.getAllTutorialsLive();
-        image = profileDAO.getImage(0);
+
+        noteDAO = db.getNoteDao();
+        allNote = noteDAO.getAllNoteLive();
     }
 
     // Methods for the local database
@@ -34,28 +36,24 @@ public class TutorialsRepository {
         new DeleteTutorialsAsyncTask(TutorialsDAO).execute(tutorials);
     }
 
-    public void insertProfile(ProfileDB profileDB){
-        //new InsertTutorialsAsyncTask(TutorialsDAO).execute(tutorials);
-        new InsertProfileAsyncTask(profileDAO).execute(profileDB);
+    public void insertNote(DBNote note){
+        new InsertNoteAsyncTask(noteDAO).execute(note);
     }
 
-    public void updateProfile(ProfileDB profileDB){
-        //new UpdateTutorialsAsyncTask(TutorialsDAO).execute(tutorials);
-        new UpdateProfileAsyncTask(profileDAO).execute(profileDB);
+    public void updateNote(DBNote note){
+        new UpdateNoteAsyncTask(noteDAO).execute(note);
     }
 
-    public void deleteProfile(ProfileDB profileDB){
-        //new DeleteTutorialsAsyncTask(TutorialsDAO).execute(tutorials);
-        new DeleteProfileAsyncTask(profileDAO).execute(profileDB);
+    public void deleteNote(DBNote note){
+        new DeleteNoteAsyncTask(noteDAO).execute(note);
     }
 
+    public LiveData<List<DBNote>> getAllNotes(){
+        return allNote;
+    }
 
     public LiveData<List<Tutorials>> getAllTutorials(){
         return allTutorials;
-    }
-
-    public LiveData<ProfileDB> getImage(){
-        return image;
     }
 
     private static class InsertTutorialsAsyncTask extends AsyncTask<Tutorials, Void, Void>{
@@ -98,41 +96,41 @@ public class TutorialsRepository {
     }
 
 
-    private static class InsertProfileAsyncTask extends AsyncTask<ProfileDB, Void, Void>{
-        private ProfileDAO profileDAO;
-        private InsertProfileAsyncTask(ProfileDAO profileDAO){
-            this.profileDAO = profileDAO;
+    private static class InsertNoteAsyncTask extends AsyncTask<DBNote, Void, Void> {
+        private NoteDAO noteDAO;
+        private InsertNoteAsyncTask(NoteDAO noteDAO){
+            this.noteDAO = noteDAO;
         }
 
         @Override
-        protected Void doInBackground(ProfileDB... profileDBS) {
-            profileDAO.insertProfile(profileDBS[0]);
+        protected Void doInBackground(DBNote... notes) {
+            noteDAO.insertNote(notes[0]);
             return null;
         }
     }
 
-    private static class UpdateProfileAsyncTask extends AsyncTask<ProfileDB, Void, Void>{
-        private ProfileDAO profileDAO;
-        private UpdateProfileAsyncTask(ProfileDAO profileDAO){
-            this.profileDAO = profileDAO;
+    private static class UpdateNoteAsyncTask extends AsyncTask<DBNote, Void, Void>{
+        private NoteDAO noteDAO;
+        private UpdateNoteAsyncTask(NoteDAO noteDAO){
+            this.noteDAO = noteDAO;
         }
 
         @Override
-        protected Void doInBackground(ProfileDB... profileDBS) {
-            profileDAO.updateProfile(profileDBS[0]);
+        protected Void doInBackground(DBNote... notes) {
+            noteDAO.updateNote(notes[0]);
             return null;
         }
     }
 
-    private static class DeleteProfileAsyncTask extends AsyncTask<ProfileDB, Void, Void>{
-        private ProfileDAO profileDAO;
-        private DeleteProfileAsyncTask(ProfileDAO profileDAO){
-            this.profileDAO = profileDAO;
+    private static class DeleteNoteAsyncTask extends AsyncTask<DBNote, Void, Void>{
+        private NoteDAO noteDAO;
+        private DeleteNoteAsyncTask(NoteDAO noteDAO){
+            this.noteDAO = noteDAO;
         }
 
         @Override
-        protected Void doInBackground(ProfileDB... profileDBS) {
-            profileDAO.deleteProfile(profileDBS[0]);
+        protected Void doInBackground(DBNote... notes) {
+            noteDAO.deleteNote(notes[0]);
             return null;
         }
     }

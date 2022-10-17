@@ -19,9 +19,6 @@ import android.view.ViewGroup;
 import com.karenovich.goenglish.R;
 import com.karenovich.goenglish.databinding.FragmentProfileBinding;
 
-import java.util.List;
-
-import Data.ProfileDB;
 import ViewModel.TutorialsViewModel;
 
 
@@ -48,33 +45,6 @@ public class ProfileFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         model = new ViewModelProvider(this).get(TutorialsViewModel.class);
 
-        model.getImage().observe(getViewLifecycleOwner(), new Observer<ProfileDB>() {
-            @Override
-            public void onChanged(ProfileDB profileDB) {
-                binding.avaImg.setImageURI(Uri.parse(profileDB.getImage()));
-            }
-        });
 
-        ActivityResultLauncher<String[]> getContent = getActivity().getActivityResultRegistry().register("key", new ActivityResultContracts.OpenDocument(), result -> {
-            getActivity().getContentResolver().takePersistableUriPermission(result, Intent.FLAG_GRANT_READ_URI_PERMISSION);
-
-            binding.avaImg.setImageURI(result);
-            uriImage = result;
-        });
-
-        binding.avaImg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getContent.launch(new String[]{"image/*"});
-            }
-        });
-
-        binding.saveBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                model.insertProfile(new ProfileDB(0, binding.inputUser.getText().toString(),
-                        binding.inputEmail.getText().toString(), binding.inputPass.getText().toString(), uriImage.toString()));
-            }
-        });
     }
 }

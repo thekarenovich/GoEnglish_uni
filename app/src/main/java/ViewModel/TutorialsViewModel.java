@@ -8,21 +8,21 @@ import androidx.lifecycle.LiveData;
 
 import java.util.List;
 
-import Data.ProfileDAO;
-import Data.ProfileDB;
+import Data.DBNote;
 import Data.TutorialsRepository;
 import Data.Tutorials;
 
 public class TutorialsViewModel extends AndroidViewModel {
     private TutorialsRepository tutorialsRepository;
     private LiveData<List<Tutorials>> allTutorials;
-    private LiveData<ProfileDB> img;
+    private LiveData<List<DBNote>> getAllNotes;
 
     public TutorialsViewModel(@NonNull Application application) {
         super(application);
         tutorialsRepository = new TutorialsRepository(application);
         allTutorials = tutorialsRepository.getAllTutorials();
-        img = tutorialsRepository.getImage();
+        getAllNotes = tutorialsRepository.getAllNotes();
+
     }
 
     // Methods ViewModel for the local database
@@ -43,20 +43,20 @@ public class TutorialsViewModel extends AndroidViewModel {
     }
 
 
-    public void insertProfile(ProfileDB profileDB){
-        tutorialsRepository.insertProfile(profileDB);
+    public void insert(DBNote note){
+        tutorialsRepository.insertNote(note);
     }
 
-    public void updateProfile(ProfileDB profileDB){
-        tutorialsRepository.updateProfile(profileDB);
+    public void update(DBNote note){
+        tutorialsRepository.updateNote(note);
     }
 
-    public void delete(ProfileDB profileDB){
-        tutorialsRepository.deleteProfile(profileDB);
+    public void delete(DBNote note){
+        tutorialsRepository.deleteNote(note);
     }
 
-    public LiveData<ProfileDB> getImage(){
-        return img;
+    public LiveData<List<DBNote>> getAllNotes(){
+        return getAllNotes;
     }
 
 }
