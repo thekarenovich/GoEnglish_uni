@@ -1,0 +1,28 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="Activities.AddTutorialsFragment">
+
+    <EditText
+        android:id="@+id/themeET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Тема"/>
+
+    <EditText
+        android:id="@+id/textET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Материал"
+        android:inputType="textCapSentences|textMultiLine"
+        android:layout_marginTop="60dp"/>
+
+    <Button
+        android:id="@+id/addBtnTheme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add"
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="100dp"/>
+</FrameLayout>

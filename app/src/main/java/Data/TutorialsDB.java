@@ -6,11 +6,12 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-@Database(entities = {Tutorials.class, DBNote.class}, version = 3)
+@Database(entities = {Tutorials.class, DBNote.class, DBProfile.class}, version = 1)
 public abstract class TutorialsDB extends RoomDatabase {
 
     public abstract TutorialsDAO getTutorialsDAO();
     public abstract NoteDAO getNoteDao();
+    public abstract ProfileDAO getProfileDao();
 
     private static volatile TutorialsDB INSTANCE;
     public static TutorialsDB getInstance(Context context){
@@ -18,7 +19,7 @@ public abstract class TutorialsDB extends RoomDatabase {
             synchronized (TutorialsDB.class){
                 if (INSTANCE == null){
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            TutorialsDB.class,"TutorialsDB").fallbackToDestructiveMigration().build();
+                            TutorialsDB.class,"TutorialsDB").allowMainThreadQueries().build();
                 }
             }
         }

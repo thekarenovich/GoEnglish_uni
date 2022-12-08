@@ -1,0 +1,39 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="Activities.PhoneticFragment">
+
+    <EditText
+        android:id="@+id/findWord"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Find word"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Транскцрипция"
+        android:textSize="16dp"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="80dp"/>
+
+    <TextView
+        android:id="@+id/transcription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="[]"
+        android:textSize="28dp"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="160dp"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/findBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Find"/>
+
+</FrameLayout>

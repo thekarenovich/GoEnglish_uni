@@ -1,0 +1,74 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="Activities.SignUpFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SignUp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="26dp"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="50dp"/>
+
+    <EditText
+        android:id="@+id/userNameSignUp"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:hint="Username"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="100dp"/>
+
+    <EditText
+        android:id="@+id/pswSignUp"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="150dp"/>
+
+    <EditText
+        android:id="@+id/emailSignUp"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="200dp"
+        android:hint="Email" />
+
+    <EditText
+        android:id="@+id/nameSignUp"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="250dp"
+        android:hint="Name" />
+
+    <Button
+        android:id="@+id/signUpBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SignIn"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="350dp"/>
+
+    <Button
+        android:id="@+id/signUpBtnVk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="VK"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="400dp"/>
+
+    <Button
+        android:id="@+id/yesAccBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="I have Acc"
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="30dp"/>
+
+</FrameLayout>

@@ -11,11 +11,14 @@ import java.util.List;
 import Data.DBNote;
 import Data.TutorialsRepository;
 import Data.Tutorials;
+import Data.WordRepository;
 
 public class TutorialsViewModel extends AndroidViewModel {
     private TutorialsRepository tutorialsRepository;
     private LiveData<List<Tutorials>> allTutorials;
     private LiveData<List<DBNote>> getAllNotes;
+
+    private final WordRepository wordRepository = new WordRepository();
 
     public TutorialsViewModel(@NonNull Application application) {
         super(application);
@@ -57,6 +60,10 @@ public class TutorialsViewModel extends AndroidViewModel {
 
     public LiveData<List<DBNote>> getAllNotes(){
         return getAllNotes;
+    }
+
+    public LiveData<String> getTexts(String word){
+        return wordRepository.getText(word);
     }
 
 }

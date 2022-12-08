@@ -19,19 +19,20 @@ import android.view.ViewGroup;
 import com.karenovich.goenglish.R;
 import com.karenovich.goenglish.databinding.FragmentProfileBinding;
 
+import Data.DBProfile;
+import ViewModel.ProfileViewModel;
 import ViewModel.TutorialsViewModel;
 
 
 public class ProfileFragment extends Fragment {
 
     FragmentProfileBinding binding;
-    TutorialsViewModel model;
+    ProfileViewModel model;
     Uri uriImage;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -43,8 +44,27 @@ public class ProfileFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        model = new ViewModelProvider(this).get(TutorialsViewModel.class);
+        model = new ViewModelProvider(this).get(ProfileViewModel.class);
 
+        model.getProfile(MainActivity.user_id).observe(getViewLifecycleOwner(), new Observer<DBProfile>() {
+            @Override
+            public void onChanged(DBProfile profile) {
+                binding.nameProfile.setText(profile.getName());
+                binding.usernameProfile.setText(profile.getUsername());
+                binding.emailProfile.setText(profile.getEmail());
+                binding.permProfile.setText(profile.getPermission());
+            }
+        });
+
+        binding.signOutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), AuthActivity.class);
+                MainActivity.user_id = Long.parseLong(null);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
 
     }
 }

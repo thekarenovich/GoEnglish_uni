@@ -4,42 +4,49 @@
     android:layout_height="match_parent"
     tools:context="Activities.ProfileFragment">
 
-    <ImageView
-        android:id="@+id/avaImg"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_gravity="center|top"
-        android:layout_marginTop="60dp" />
-
     <Button
-        android:id="@+id/saveBtn"
+        android:id="@+id/signOutBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center|bottom"
         android:layout_marginBottom="80dp"
-        android:text="Save profile"/>
+        android:text="Sign Out"/>
 
-    <EditText
-        android:id="@+id/inputUser"
+    <TextView
+        android:id="@+id/usernameProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Username"
+        android:textSize="24dp"
+        android:textStyle="bold"
         android:layout_gravity="center|top"
-        android:layout_marginTop="200dp"
-        android:hint="Username"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_marginTop="20dp" />
 
-    <EditText
-        android:id="@+id/inputEmail"
+    <TextView
+        android:id="@+id/nameProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="name"
+        android:textSize="24dp"
         android:layout_gravity="center|top"
-        android:layout_marginTop="250dp"
-        android:hint="Email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_marginTop="60dp" />
 
-    <EditText
-        android:id="@+id/inputPass"
+    <TextView
+        android:id="@+id/permProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Permission"
+        android:textSize="16dp"
         android:layout_gravity="center|top"
-        android:layout_marginTop="300dp"
-        android:hint="Password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_marginTop="100dp" />
+
+    <TextView
+        android:id="@+id/emailProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:textSize="16dp"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="180dp" />
+
 </FrameLayout>
